@@ -1,0 +1,116 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    private static Scanner scanner = new Scanner(System.in);
+    char[][] grid;
+    private class Node(){
+        public int rowPos;
+        public int colPos;
+        public String direction;
+        Node (String direction, int rowPos, int colPos ){
+            this.direction = direction;
+            this.rowPos = rowPos;
+            this.colPos = colPos;
+        }
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int[] pacman = new int[2];
+        int[] food = new int[2];
+        int[] dif = new int[2];
+        // row
+        pacman[0] = scanner.nextInt();
+        // col
+        pacman[1] = scanner.nextInt();
+        food[0] = scanner.nextInt();
+        food[1] = scanner.nextInt();
+        dif[0] = food[0] - pacman[0];
+        dif[1] = food[0] - pacman[1];
+        int row = scanner.nextInt();
+        int col = scanner.nextInt();
+        // remove tails of line
+        // scanner.nextLine();
+        grid = new char[row][col];
+        for(int i = 0; i<row ; i++){
+             String str = scanner.nextLine();
+            for (int j =0 ; j<col; j++) {
+              grid[i][j] = str.charAt(j); 
+            }
+        }
+        String [4] priority;
+        if (dif[0]>=0) {
+            priority[0] = "down";
+            priority[1] = "up";
+        } else {
+            priority[0] = "up";
+            priority[1] = "down";
+        }
+        if (dif[1]>=0) {
+            priority[2] = "right";
+            priority[3] = "left";
+        } else {
+            priority[2] = "left";
+            priority[3] = "right";
+        }
+        findWay(priority);
+        
+  }
+    private void findWay(String [4] priority){
+        List<Node> stack = new ArrayList<>();
+        int 
+        if (pacman[0])
+        
+    }
+    
+    
+    private List<Node> checkCellCanGoStep(String step, int[2] position, String [4] priority) {
+       List<Node> validSteps = new ArrayList<>();
+        for(int i= 0; i< priority.length;i++){
+            int[2] cellPos = goOneStep(priority[i], position);
+            if (grid[cellPos[0]][cellPos[1]] == '-') {
+                validSteps.add(new Node (priority[i], cellPos[0], cellPos[1]));
+            }
+        }
+        return validSteps;
+    }
+    private int[2] goOneStep(String step, int[2] position) {
+        int[2] result;
+        swith (step) {
+            case "up" :
+                result = up(position);
+                break;
+            case "down" :
+                result = down(position);
+                break;
+            case "left" :
+                result = left(position);
+                break;
+            case "right" :
+                result = right(position);
+                break;
+        }
+        return result;
+    }
+    private int[2] up (int[2] position){
+        new int[] result = {position[0]-1, position[1]}
+        return result;
+    }
+    private int[2] down (int[2] position){
+        new int[] result = {position[0]+1, position[1]}
+        return result;
+    }
+    private int[2] left (int[2] position){
+        new int[] result = {position[0], position[1]-1}
+        return result;
+    }
+    private int[2] right (int[2] position){
+        new int[] result = {position[0], position[1]-1}
+        return result;
+    }
+    private void print(int[2] position) {
+        System.out.printf("%d %d", position[0], position[1]);
+        System.out.println();
+    }
+}
