@@ -1,0 +1,29 @@
+Hackerand
+
+public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a;
+        a = in.nextInt();
+        int b;
+        b = in.nextInt();
+        int sum;
+        sum = solveMeFirst(a, b);
+        System.out.println(sum);
+   }
+}
+
+
+Scanner scanner = new Scanner(System.in);
+
+int a = scanner.nextInt();
+
+reader.useDelimiter("");
+reader.next()
+
+char c = scanner.next().charAt(0);
+String sentence = scanner.nextLine();
+
+
+
+
+System.out.println(sum);
